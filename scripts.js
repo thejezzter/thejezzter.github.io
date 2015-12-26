@@ -142,21 +142,16 @@ $(document).ready(function(){
 	}
 
 	function coordinatesToDirection(inix, iniy){
-		alert(inix);
 		if (iniy > 0 && iniy < 100){
-			alert("up");
 			return "up";
 		}
 		if (iniy > (w-100) && iniy < w){
-			alert("down");
 			return "down";
 		}
 		if (inix < Math.round(w/2)){
-			alert("left");
 			return "left";
 		}
 		if (inix >= Math.round(w/2)){
-			alert("right");
 			return "right";
 		}
 	}
