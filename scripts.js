@@ -163,4 +163,7 @@ $(document).ready(function(){
 
 $(function(){
 	$("#canvas").on( "swipeleft", function(){ alert("Swiping left");});
+	$("#canvas").on( "swiperight", function(){ alert("Swiping right");});
+	$("#canvas").on( "swipeup", function(){ alert("Swiping up");});
+	$("#canvas").on( "swipedown", function(){ alert("Swiping down");});
 });
