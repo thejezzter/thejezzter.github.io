@@ -141,7 +141,7 @@ $(document).ready(function(){
 		return false;
 	}
 
-	function cooridinatesToDirection(inix, iniy){
+	function coordinatesToDirection(inix, iniy){
 		alert(inix);
 		if (iniy > 0 && iniy < 100){
 			alert("up");
@@ -193,7 +193,6 @@ $(document).ready(function(){
     e.preventDefault();
     e.stopPropagation();
     var iniPoint=e.changedTouches[0];
-    alert(iniPoint);
     var direction = coordinatesToDirection(iniPoint.pageX, iniPoint.pageY);
     changeDirection(direction);
   }, false);	
