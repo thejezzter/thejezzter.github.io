@@ -193,6 +193,7 @@ $(document).ready(function(){
     e.preventDefault();
     e.stopPropagation();
     var iniPoint=e.changedTouches[0];
+    alert(iniPoint);
     var direction = coordinatesToDirection(iniPoint.pageX, iniPoint.pageY);
     changeDirection(direction);
   }, false);	
