@@ -143,15 +143,19 @@ $(document).ready(function(){
 
 	function cooridinatesToDirection(inix, iniy){
 		if (iniy > 0 && iniy < 100){
+			alert("up");
 			return "up";
 		}
 		if (iniy > (w-100) && iniy < w){
+			alert("down");
 			return "down";
 		}
 		if (inix < Math.round(w/2)){
+			alert("left");
 			return "left";
 		}
 		if (inix >= Math.round(w/2)){
+			alert("right");
 			return "right";
 		}
 	}
@@ -187,7 +191,7 @@ $(document).ready(function(){
    document.addEventListener('touchend', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    iniPoint=e.changedTouches[0];
+    var iniPoint=e.changedTouches[0];
     var direction = coordinatesToDirection(iniPoint.pageX, iniPoint.pageY);
     changeDirection(direction);
   }, false);	
