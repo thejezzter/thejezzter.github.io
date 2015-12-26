@@ -140,27 +140,55 @@ $(document).ready(function(){
 		}
 		return false;
 	}
+
+	function cooridinatesToDirection(inix, iniy){
+		if (iniy > 0 && iniy < 100){
+			return "up";
+		}
+		if (iniy > (w-100) && iniy < w){
+			return "down";
+		}
+		if (inix < Math.round(w/2)){
+			return "left";
+		}
+		if (inix >= Math.round(w/2)){
+			return "right";
+		}
+	}
+
+	function changeDirection(direction){
+	//We will add another clause to prevent reverse gear
+		if(direction == "left" && d != "right") d = "left";
+		else if(direction == "up" && d != "down") d = "up";
+		else if(direction == "right" && d != "left") d = "right";
+		else if(direction == "down" && d != "up") d = "down";
+		//The snake is now keyboard controllable
+	}
 	
 	//Lets add the keyboard controls now
 	$(document).keydown(function(e){
 		var key = e.which;
-		//We will add another clause to prevent reverse gear
-		if(key == "37" && d != "right") d = "left";
-		else if(key == "38" && d != "down") d = "up";
-		else if(key == "39" && d != "left") d = "right";
-		else if(key == "40" && d != "up") d = "down";
-		//The snake is now keyboard controllable
+		var direction;
+		if (key == "37"){
+			direction = "left";
+		}
+		else if (key == "38"){
+			direction = "up";
+		}
+		else if (key == "39"){
+			direction = "right";
+		}
+		else if (key == "40"){
+			direction = "down";
+		}
+		changeDirection(direction);
 	})
   
    document.addEventListener('touchend', function(e) {
     e.preventDefault();
     e.stopPropagation();
     iniPoint=e.changedTouches[0];
-    alert(iniPoint.pageX);
-    alert(iniPoint.pageY);
-  //   if(d === "right") d = "down";
-		// else if(d === "down") d = "left";
-		// else if(d === "left") d = "up";
-		// else if(d === "up") d = "right";
-}, false);	
+    var direction = coordinatesToDirection(iniPoint.pageX, iniPoint.pageY);
+    changeDirection(direction);
+  }, false);	
 })
