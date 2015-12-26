@@ -158,12 +158,11 @@ $(document).ready(function(){
 // 		else if(d === "down") d = "left";
 // 		else if(d === "left") d = "up";
 // 		else if(d === "up") d = "right";
-// }, false);
+// }, false);	
+})
 
 $(document).on( "swipeleft", swipeleftHandler );
 // Callback function references the event target and adds the 'swipeleft' class to it
 function swipeleftHandler( event ){
 	alert("Swiping left");
-}	
-	
-})
+}
