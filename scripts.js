@@ -142,6 +142,7 @@ $(document).ready(function(){
 	}
 
 	function cooridinatesToDirection(inix, iniy){
+		alert(inix);
 		if (iniy > 0 && iniy < 100){
 			alert("up");
 			return "up";
