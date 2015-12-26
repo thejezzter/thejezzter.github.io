@@ -152,13 +152,32 @@ $(document).ready(function(){
 		//The snake is now keyboard controllable
 	})
   
-   document.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    if(d === "right") d = "down";
-		else if(d === "down") d = "left";
-		else if(d === "left") d = "up";
-		else if(d === "up") d = "right";
-}, false);
+//    document.addEventListener('touchend', function(e) {
+//     e.preventDefault();
+//     if(d === "right") d = "down";
+// 		else if(d === "down") d = "left";
+// 		else if(d === "left") d = "up";
+// 		else if(d === "up") d = "right";
+// }, false);
+
+$(document).swipe( {
+  swipeUp:function(event, direction, distance, duration) {
+    console.log("You swiped " + direction)
+  },
+  swipeDown:function(event, direction, distance, duration) {
+    console.log("You swiped " + direction) 
+  },
+  swipeLeft:function(event, direction, distance, duration) {
+    console.log("You swiped " + direction)
+  },
+  swipeRight:function(event, direction, distance, duration) {
+    console.log("You swiped " + direction) 
+  },
+  click:function(event, target) { 
+  },
+  threshold:100,
+  allowPageScroll:"vertical"
+});
 
 /*   $(canvas).on("tap",function(){
     if(d === "right") d = "down";
