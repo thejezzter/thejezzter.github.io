@@ -142,18 +142,42 @@ $(document).ready(function(){
 	}
 
 	function coordinatesToDirection(inix, iniy){
-		if (iniy > 0 && iniy < 100){
-			return "up";
+		cellx = Math.round(inix/cw);
+		celly = Math.round(iniy/cw);
+		rangex = cellx - nx;
+		rangey = celly - ny;
+		if (Math.abs(rangex) > Math.abs(rangey)){
+			//going horizontal
+			alert("gh");
+			if (rangex > 0){
+				return "right";
+			}
+			else{
+				return "left";
+			}
 		}
-		if (iniy > (w-100) && iniy < w){
-			return "down";
+		else if (Math.abs(cellx - nx) < Math.abs(celly - ny)){
+			//going vertical
+			alert("gv");
+			if (rangey > 0){
+				return "down";
+			}
+			else{
+				return "up";
+			}	
 		}
-		if (inix < Math.round(w/2)){
-			return "left";
-		}
-		if (inix >= Math.round(w/2)){
-			return "right";
-		}
+		// if (iniy > 0 && iniy < 100){
+		// 	return "up";
+		// }
+		// if (iniy > (w-100) && iniy < w){
+		// 	return "down";
+		// }
+		// if (inix < Math.round(w/2)){
+		// 	return "left";
+		// }
+		// if (inix >= Math.round(w/2)){
+		// 	return "right";
+		// }
 	}
 
 	function changeDirection(direction){
