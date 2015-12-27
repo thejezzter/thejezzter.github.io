@@ -10,6 +10,8 @@ $(document).ready(function(){
 	var d;
 	var food;
 	var score;
+	var nx;
+	var ny;
 	
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
@@ -64,8 +66,8 @@ $(document).ready(function(){
 		//The movement code for the snake to come here.
 		//The logic is simple
 		//Pop out the tail cell and place it infront of the head cell
-		var nx = snake_array[0].x;
-		var ny = snake_array[0].y;
+		nx = snake_array[0].x;
+		ny = snake_array[0].y;
 		//These were the position of the head cell.
 		//We will increment it to get the new head position
 		//Lets add proper direction based movement now
@@ -142,13 +144,14 @@ $(document).ready(function(){
 	}
 
 	function coordinatesToDirection(inix, iniy){
-		cellx = Math.round(inix/cw);
-		celly = Math.round(iniy/cw);
-		rangex = cellx - nx;
-		rangey = celly - ny;
+		inix = (inix>w)?(w):inix;
+		iniy = (iniy>h)?(h):iniy;
+		var cellx = Math.round(inix/cw);
+		var celly = Math.round(iniy/cw);
+		var rangex = cellx - nx;
+		var rangey = celly - ny;
 		if (Math.abs(rangex) > Math.abs(rangey)){
 			//going horizontal
-			alert("gh");
 			if (rangex > 0){
 				return "right";
 			}
@@ -158,7 +161,6 @@ $(document).ready(function(){
 		}
 		else if (Math.abs(cellx - nx) < Math.abs(celly - ny)){
 			//going vertical
-			alert("gv");
 			if (rangey > 0){
 				return "down";
 			}
@@ -166,18 +168,6 @@ $(document).ready(function(){
 				return "up";
 			}	
 		}
-		// if (iniy > 0 && iniy < 100){
-		// 	return "up";
-		// }
-		// if (iniy > (w-100) && iniy < w){
-		// 	return "down";
-		// }
-		// if (inix < Math.round(w/2)){
-		// 	return "left";
-		// }
-		// if (inix >= Math.round(w/2)){
-		// 	return "right";
-		// }
 	}
 
 	function changeDirection(direction){
