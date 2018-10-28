@@ -18,6 +18,7 @@ $(document).ready(function(){
 	
 	function init()
 	{
+		console.log('privet!');
 		d = "right"; //default direction
 		create_snake();
 		create_food(); //Now we can see the food particle
